@@ -5,24 +5,30 @@ require 'pry'
 
 require_relative "machine"
 
-class JobQueueService
-  attr_reader :current_game
+class GameAPIService
+  attr_reader :game_id
 
   def initialize
-    @current_game = OpenStruct.new(new_game)
+    @game_id = new_game["id"]
   end
 
   def game_url
-    "/games/#{current_game.id}"
+    "/games/#{game_id}"
   end
 
   def conn
     Faraday.new(url: 'http://job-queue-dev.elasticbeanstalk.com')
   end
 
+  def current_game
+    response  = conn.get "#{game_url}"
+    json      = JSON.parse(response.body)
+    OpenStruct.new(json)
+  end
+
   def new_game
-    response = conn.post '/games'
-    json = JSON.parse(response.body)
+    response  = conn.post '/games'
+    json      = JSON.parse(response.body)
     OpenStruct.new(json)
   end
 
@@ -47,7 +53,7 @@ class JobQueueService
 
   def next_turn
     response = conn.get   "#{game_url}/next_turn"
-    JSON.parse(response.body)
+    json = JSON.parse(response.body)
     OpenStruct.new(json)
   end
 end
