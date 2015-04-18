@@ -1,4 +1,3 @@
-require "pry"
 require_relative "game_manager"
 
 class InputManager

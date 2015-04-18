@@ -1,4 +1,3 @@
-require 'pry'
 require_relative "game_api_service"
 require_relative "display"
 require_relative "job"
