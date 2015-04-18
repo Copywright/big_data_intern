@@ -1,3 +1,4 @@
+require 'pry'
 require_relative "game_manager"
 
-GameManager.begin
+GameManager.new.begin

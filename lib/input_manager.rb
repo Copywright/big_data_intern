@@ -1,4 +1,5 @@
 require "pry"
+require_relative "game_manager"
 
 class InputManager
 
@@ -11,7 +12,17 @@ class InputManager
   end
 
   def self.check_input
-    user_input = gets.chomp
+    user_input = gets.strip
     parse(user_input)
   end
+
+  # 1.  delete machine
+  #   - Deletes a machine
+  # 2.  new machine
+  #   - Creates a new machine.
+  # 3.  assign job
+  #   - Assigns a job to a machine.
+  # 4.  help
+  #   - Use this command to review these directions.
+  # 5.  next turn
 end

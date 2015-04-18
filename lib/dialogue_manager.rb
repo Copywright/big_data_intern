@@ -1,5 +1,5 @@
-require_relative "display"
 require_relative "input_manager"
+require_relative "game_manager"
 
 class DialogueManager
 
@@ -45,6 +45,6 @@ class DialogueManager
 
   def escape_dialogue
     Display.sweeven_dump_off
-    GameManager.start_game
+    GameManager.new.start_game
   end
 end
