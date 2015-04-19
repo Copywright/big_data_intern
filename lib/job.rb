@@ -1,3 +1,4 @@
+require 'pry'
 class Job
   attr_reader :id, :spawn_turn, :cost, :turns_needed
 
@@ -7,6 +8,7 @@ class Job
     @spawn_turn   = job.turn
     @turns_needed = job.turns_required
     @assigned     = false
+    @queued       = false
   end
 
   def process
@@ -14,11 +16,23 @@ class Job
     @assigned = true
   end
 
+  def queue
+    @queued = true
+  end
+
   def complete?
     @turns_needed == 0
   end
 
+  def assigned?
+    @assigned
+  end
+
+  def queued?
+    @queued
+  end
+
   def pending?
-    !@assigned
+    assigned? == false && queued? == false
   end
 end

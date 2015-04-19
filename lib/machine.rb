@@ -34,6 +34,7 @@ class Machine
 
   def queue_job(job)
     @queue << job
+    job.queue
   end
 
   def can_process?(job)

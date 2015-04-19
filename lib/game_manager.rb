@@ -3,6 +3,7 @@ require_relative "input_manager"
 require_relative "display"
 require_relative "game"
 
+require "pry"
 
 class GameManager
   attr_reader :game
@@ -104,11 +105,13 @@ class GameManager
 
   def ask_machine_number
     Display.machine_number
-    gets.strip.to_i
+    list_number = gets.strip.to_i
+    game.machines[list_number - 1].id
   end
 
   def ask_job_number
     Display.job_number
-    gets.strip.to_i
+    list_number = gets.strip.to_i
+    game.jobs[list_number - 1].id
   end
 end

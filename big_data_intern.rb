@@ -1,4 +1,4 @@
 require 'pry'
-require_relative "game_manager"
+require_relative "lib/game_manager"
 
 GameManager.new.begin

@@ -19,7 +19,7 @@ class Display
   def self.job_list(jobs)
     puts "Jobs:   \n".green
     jobs.each_with_index do |j, i|
-      puts "      #{i + 1}. Job ##{j.id} | Cost: #{j.cost}GB | Turns To Completion: #{j.turns_needed} | In Progress: #{!j.pending?} #{"\n" if i == jobs.length - 1}".yellow
+      puts "      #{i + 1}. Job ##{j.id} |".yellow +  " Cost: #{j.cost}GB ".red + "| Turns To Completion: #{j.turns_needed} | In Progress: #{!j.pending?} #{"\n" if i == jobs.length - 1}".yellow
     end
   end
 
@@ -39,7 +39,7 @@ class Display
     end
   end
 
-  def self.job_assigned(machine, job)
+  def self.job_assigned(job, machine)
     puts "Job ##{job.id} assigned to Machine ##{machine.id}\n".red
   end
 

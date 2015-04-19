@@ -30,7 +30,7 @@ class Game
   def delete_machine(machine)
     service.delete_machine(machine.id)
     @machines.reject! { |m| m.id == machine.id }
-    @completed_jobs += machine.completed_jobs unless machine.completed_jobs.empty?
+    @completed_jobs += machine.completed_jobs
   end
 
   def find_machine(machine_id)
@@ -53,6 +53,7 @@ class Game
     process_machines
     check_delay_turns
     turn = service.next_turn
+    update_jobs
     add_jobs(turn)
   end
 
@@ -63,6 +64,10 @@ class Game
     @machines       = []
     @total_cost     = 0
     @delay_turns    = 0
+  end
+
+  def update_jobs
+    @jobs.reject! {|j| j.pending? == false }
   end
 
   def check_delay_turns
