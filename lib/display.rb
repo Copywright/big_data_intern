@@ -58,7 +58,9 @@ class Display
   def self.directions
     puts sweeven + "You'll be in charge of executing the jobs the real programmers are
         queuing up. Take these directions.\n".yellow
+    sleep(1)
     help
+    sleep(5)
     puts sweeven + "Do you understand?\n".yellow
     indicate_input
   end
@@ -113,6 +115,7 @@ class Display
     puts sweeven  + "Alright Mr. No-CS-Degree, since you wormed your in here,
          we'll put you on grunt work til yer singing
          fibonacci numbers and can do Fizzbuzz in less than 5 lines.\n".yellow
+    sleep(1)
   end
 
   def self.hr_invalid
