@@ -21,7 +21,7 @@ class DialogueManager
   def repeat_directions
     Display.sweeven_retort
     response = InputManager.check_input
-    response ? game_start_dialogue(true) : Display.sweeven_dump_off
+    response ? game_start_dialogue(true) : escape_dialogue
   end
 
   def game_start_dialogue(skip_hr = false)

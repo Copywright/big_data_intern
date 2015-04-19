@@ -1,6 +1,6 @@
 # Big Data Intern #
 
-Big Data Intern is the result of boredom and inactivity at the time of receiving a cool code challenge.
+Big Data Intern is the result of boredom and inactivity at the time of receiving a cool code challenge (thanks Custora!).
 
 ## The Basics ##
 
