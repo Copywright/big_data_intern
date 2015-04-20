@@ -1,7 +1,3 @@
-# Big Data Intern #
-
-Big Data Intern is the result of boredom and inactivity at the time of receiving a cool code challenge (thanks Custora!).
-
 ## The Basics ##
 
  It is a turn-based game where each turn includes a batch of jobs that needs to be processed. For
