@@ -50,9 +50,9 @@ class Game
   end
 
   def next_turn
+    turn = service.next_turn
     process_machines
     check_delay_turns
-    turn = service.next_turn
     update_jobs
     add_jobs(turn)
   end
@@ -68,6 +68,10 @@ class Game
 
   def update_jobs
     @jobs.reject! {|j| j.pending? == false }
+  end
+
+  def update_costs
+    @total_cost += machines.count
   end
 
   def check_delay_turns
